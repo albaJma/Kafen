@@ -321,25 +321,123 @@
             position: relative;
         }
 
-        /* Responsividad */
-        @media (max-width: 768px) {
-            .menu-icon {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background-color: #4A302B;
-                width: 100%;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                padding: 1rem;
-            }
-            .nav-links.show {
-                display: flex;
-            }
-        }
+       /* Responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Mostrar el icono de menú en pantallas pequeñas */
+    }
+
+.container-center {
+    padding: 1.5rem;
+}
+/* Ajustes de navegación para pantallas móviles */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #4A302B;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 1rem;
+}
+
+.nav-links.show {
+    display: flex;
+}
+
+/* Ajustes en la sección de introducción */
+.intro-section {
+    padding: 1.5rem;
+    grid-template-columns: 1fr; /* Cambia a una columna en dispositivos móviles */
+}
+
+.history-content {
+    flex-direction: column;
+    text-align: center;
+}
+
+.history-image {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 1rem;
+}
+
+/* Ajustes de imágenes en la sección inicial */
+.logo-container img {
+    max-width: 100px; /* Tamaño más pequeño para dispositivos móviles */
+}
+
+.about-image img {
+    max-width: 80%;
+    margin-bottom: 1rem;
+}
+
+/* Ajustes en las secciones de menú y productos */
+.menu-list, .product-list {
+    padding: 1rem;
+}
+
+.menu-item, .product-item {
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Carrusel de imágenes */
+.carousel {
+    max-width: 100%;
+    margin: 1rem auto;
+}
+
+.carousel img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+/* Ajustes de contenedor de contacto */
+.contact-container {
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.map-container, .typeform-embed {
+    max-width: 100%;
+    height: 250px;
+}
+
+.social-media {
+    gap: 0.5rem;
+    font-size: 1.5rem;
+}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+/* Responsividad para tabletas */
+
+
+.intro-section {
+    padding: 2rem;
+}
+
+.history-image {
+    width: 100%;
+    max-width: 300px;
+}
+
+.menu-list, .product-list {
+    padding: 1rem;
+}
+
+.carousel {
+    max-width: 70%;
+}
+
+.contact-container {
+    flex-direction: row;
+    justify-content: space-around;
+}
+}
+
     </style>
 </head>
 <body>
@@ -537,9 +635,12 @@
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById("navLinks").classList.toggle("show");
-        }
+        // Función para alternar el menú en dispositivos móviles
+function toggleMenu() {
+    const navLinks = document.getElementById("navLinks");
+    navLinks.classList.toggle("show");
+}
+
 
         function navigateTo(sectionId) {
             document.querySelectorAll('.section').forEach(section => {
